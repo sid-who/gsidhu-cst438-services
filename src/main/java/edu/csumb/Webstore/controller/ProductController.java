@@ -46,7 +46,7 @@ public class ProductController
 
     @RequestMapping(method = RequestMethod.POST, value = "/products/add")
     @ApiOperation(value = "Add a new product to the database.")
-    public Product createProduct(@RequestBody Product products)
+    public Product createProduct(/*@RequestBody*/ Product products)
     {
         Product temp = new Product();
         temp.setId(products.getId());
@@ -71,9 +71,9 @@ public class ProductController
 
     @RequestMapping(method = RequestMethod.GET, value = "products/getAll")
     @ApiOperation(value = "Get all products from the database.")
-    public Iterable<String> getAllProducts()
+    public Iterable<Product> getAllProducts()
     {
-        return productService.getAllProducts(); /**TODO: BUILD**/
+        return productService.getAllProducts(null); /** TODO: BUILD **/
     }
 
 

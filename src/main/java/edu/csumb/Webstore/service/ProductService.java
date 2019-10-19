@@ -72,6 +72,10 @@ public class ProductService
         return hardList;
 	}
 
+	public Iterable<String> getProductById() {
+		return null;
+	}
+
 	/*public void save(Product products) {
 	}*/
 

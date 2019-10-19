@@ -7,6 +7,7 @@ package edu.csumb.Webstore.controller;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,11 +46,19 @@ public class ProductController
 
     @RequestMapping(method = RequestMethod.POST, value = "/products/add")
     @ApiOperation(value = "Add a new product to the database.")
-    public Product createProduct(Product products)
+    public Product createProduct(@RequestBody Product products)
     {
-        products.setId(ObjectId.get());
-        productService.save(products);
-        return products;
+        Product temp = new Product();
+        temp.setId(products.getId());
+        temp.setName(products.getName());
+        temp.setDescription(products.getDescription());
+        temp.setImageURL(products.getImageURL());
+        temp.setPrice(products.getPrice());
+        temp.setStock(products.getStock());
+
+        //products.setId(ObjectId.get());
+        //productService.save(products);
+        return temp;
 
     }
 

@@ -8,17 +8,21 @@ import org.springframework.data.annotation.Id;
 
 public class Product
 {
-    @Id
+    //@Id
     public String id;
 
     public String name;
     public String description;
     public String imageURL;
     public double price;
-    public int stock;
+	public int stock;
+	
+	public Product()//empty constructor
+	{}
 
-    public Product(String name, String description, String imageURL, double price, int stock)
+    public Product(String id, String name, String description, String imageURL, double price, int stock)
     {
+		this.id = id;
         this.name = name;
         this.description = description;
         this.imageURL = imageURL;

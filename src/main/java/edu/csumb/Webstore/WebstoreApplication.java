@@ -5,10 +5,12 @@ package edu.csumb.Webstore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
 
 import edu.csumb.Webstore.model.Product;
 import edu.csumb.Webstore.repositories.ProductRepository;
 
+@Controller
 @SpringBootApplication
 public class WebstoreApplication
 {

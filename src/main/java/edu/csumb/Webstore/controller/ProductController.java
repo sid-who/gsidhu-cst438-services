@@ -54,7 +54,7 @@ public class ProductController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/products/add")
     @ApiOperation(value = "Add a new product to the database.")
-    public Product createProduct(/* @RequestBody */ Product products) {
+    public Product createProduct(@RequestBody Product products) {
         /*
          * Product temp = new Product(); temp.setId(products.getId());
          * temp.setName(products.getName());
@@ -74,15 +74,15 @@ public class ProductController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/products/get/{id}")
     @ApiOperation(value = "Get a specific product from the database by its ID.")
-    //public Optional<Product> getProductById(@PathVariable("id") String id)
-    public List getProductById(/*@PathVariable*/ String id)
+    public Optional<Product> getProductById(/*@PathVariable("id")*/ String id)
     {
-        return productService.getProductById(id); /**TODO: BUILD**/
+        //return productService.getProductById(id); /**TODO: BUILD**/
+        return productService.getProductById(id);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "products/getAll")
     @ApiOperation(value = "Get all products from the database.")
-    public List getAllProducts()
+    public List<Product> getAllProducts()
     {
         return productService.getAllProducts(); /** TODO: BUILD **/
     }
